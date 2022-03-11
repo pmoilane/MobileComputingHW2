@@ -94,23 +94,6 @@ private fun ReminderListItem(
         IconButton(
             onClick = {
                 dialogBoolean.value = true
-                /*
-              coroutineScope.launch {
-                  viewModel.editReminder(
-                      Reminder(
-                          reminderId = reminder.reminderId,
-                          message = "message.value",
-                          locationX = 2.0,
-                          locationY = 3.0,
-                          reminderTime = 15,
-                          creationTime = 13,
-                          creatorId = 2,
-                          reminderSeen = 14,
-                          reminderIcon = "iconss.value"
-                      )
-
-                  )
-              }*/
             },
             modifier = Modifier
                 .size(50.dp)
@@ -191,7 +174,7 @@ private fun ReminderListItem(
                     Button(
                         onClick = { dialogBoolean.value = false
                             coroutineScope.launch {
-                            viewModel.saveReminder(
+                            viewModel.editReminder(
                                 Reminder(
                                     reminderId = reminder.reminderId,
                                     message = newMessage.value,
@@ -212,21 +195,6 @@ private fun ReminderListItem(
                     Spacer(modifier = Modifier.width(20.dp))
                     Button(
                         onClick = { dialogBoolean.value = false
-                            coroutineScope.launch {
-                                viewModel.editReminder(
-                                    Reminder(
-                                        reminderId = reminder.reminderId,
-                                        message = newMessage.value,
-                                        locationX = reminder.locationX,
-                                        locationY = reminder.locationY,
-                                        reminderTime = reminder.reminderTime,
-                                        creationTime = reminder.creationTime,
-                                        creatorId = reminder.creatorId,
-                                        reminderSeen = reminder.reminderSeen,
-                                        reminderIcon = reminder.reminderIcon
-                                    )
-
-                                )}
                         }
                     ) {
                         Text("Discard")
